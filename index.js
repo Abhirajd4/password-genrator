@@ -10,6 +10,19 @@ function generate(lenght=12){
 
 }
 function displaypasword(){
-    const password=generate();
-    document.getElementById("display").textContent=password
+    const password=generate(12);
+    document.getElementById('display').value=password;
+}
+ async function copycommand(){
+    const passwordCopy=document.getElementById('display')
+  
+    try {
+        await navigator.clipboard.writeText(passwordCopy.value);
+        alert("Password copied: " + passwordCopy.value);
+    }
+    catch (err) {
+        alert('Failed to copy: ', err);
+    } 
+
+
 }
